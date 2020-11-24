@@ -33,10 +33,10 @@ function App() {
     const reportName = 'Active Assets Report';
     const headers = ['Name', 'ID', 'Location', 'Category'];
     const lastCol = headers.length - 1;
+
+    rows.push([], ['REPORT NAME', reportName]);
     rows[0][lastCol - 1] = 'Time Stamp';
     rows[0][lastCol] = excelObj.toExcelLocalTime(new Date());
-    rows.push([], ['REPORT NAME', reportName]);
-
     rows.push([], ['Location', 'Memphis']);
 
     rows.push([], ['Report Type', 'Scheduled']);
@@ -55,7 +55,7 @@ function App() {
       // styles can be applied to row, col or cell, but if you do it more then once, only the latest will apply
       {col: '0-' + lastCol, width: 20},
       {row: rows.length - 1, height: 20},
-      {row: 0, col: lastCol, font: 'Arial 9 #000000 B', align: 'R C', format: "mmm dd, yyyy;@"},
+      {row: 0, col: lastCol, format: 'm-d-yyyy h:mm:ss AM/PM', font: 'Arial 8 B'},
       {row: 1, col: 1, font: 'Arial 9 #000000 B', wrapText: 1},
       {row: 3 , col: 1, font: 'Arial 9 #000000 B', wrapText: 1,},
       {row: 5 , col: 1, font: 'Arial 9 #000000 B', wrapText: 1,},
